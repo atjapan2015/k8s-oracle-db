@@ -26,18 +26,23 @@ spec:
         env:
         - name: ORACLE_SID
           value: CDB1
-        - name: ORACLE_SID
+        - name: ORACLE_PDB
           value: PDB1
         - name: ORACLE_PWD
-          value: TOdo__9090
+          value: TODO
         volumeMounts:
+        - name: scripts
+          mountPath: /opt/oracle/scripts/startup
         - name: data
-          mountPath: /ORCL
+          mountPath: /opt/oracle/oradata
       securityContext:
         runAsNonRoot: true
         runAsUser: 54321
         fsGroup: 54321
       volumes:
+        - name: scripts
+          persistentVolumeClaim:
+            claimName: oracle-db-scripts-pvc
         - name: data
           persistentVolumeClaim:
-            claimName: oracle-db-pvc
+            claimName: oracle-db-data-pvc
