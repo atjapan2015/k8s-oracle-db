@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: oracle-db-19c
+  name: orcldb19c
   namespace: public-service
   labels:
-    app: oracle-db-19c
+    app: orcldb19c
 spec:
-  serviceName: oracle-db-19c
+  serviceName: orcldb19c
   selector:
     matchLabels:
-      app: oracle-db-19c
+      app: orcldb19c
   template:
     metadata:
       labels:
-        app: oracle-db-19c
+        app: orcldb19c
     spec:
       containers:
       - image: oracle/database:19.3.0-ee
-        name: oracle-db-19c
+        name: orcldb19c
         ports:
         - containerPort: 1521
-          name: oracle-db-19c-db
+          name: db
         - containerPort: 5500
-          name: oracle-db-19c-oem
+          name: oem
         env:
         - name: ORACLE_SID
-          value: ORCLCDB
+          value: CDB1
         - name: ORACLE_SID
-          value: ORCLPDB1
+          value: PDB1
         - name: ORACLE_PWD
           value: TOdo__9090
         volumeMounts:
