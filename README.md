@@ -17,3 +17,7 @@ step2: deply
 ```sh
 kubectl apply -f .
 ```
+
+```
+grant create session,pdb_dba to pdbadmin;
+```
