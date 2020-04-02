@@ -19,5 +19,11 @@ kubectl apply -f .
 ```
 
 ```
-grant create session,pdb_dba to pdbadmin;
+ALTER SESSION SET container = pdb1;
+
+GRANT
+    CREATE SESSION, sysoper, pdb_dba, dba,
+    CREATE PLUGGABLE DATABASE,
+    CREATE TABLE
+TO pdbadmin;
 ```
