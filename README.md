@@ -22,8 +22,10 @@ kubectl apply -f .
 ALTER SESSION SET container = pdb1;
 
 GRANT
-    CREATE SESSION, sysoper, pdb_dba, dba,
+    SYSOPER, DBA, PDB_DBA, RESOURCE, CONNECT,
+    CREATE SESSION,
     CREATE PLUGGABLE DATABASE,
-    CREATE TABLE
+    CREATE TABLE,
+    UNLIMITED TABLESPACE
 TO pdbadmin;
 ```
