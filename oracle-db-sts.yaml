@@ -23,13 +23,15 @@ spec:
           name: db
         - containerPort: 5500
           name: oem
+        - containerPort: 8080
+          name: ords
         env:
         - name: ORACLE_SID
           value: CDB1
         - name: ORACLE_PDB
           value: PDB1
         - name: ORACLE_PWD
-          value: TODO
+          value: ToDo
         volumeMounts:
         - name: scripts
           mountPath: /opt/oracle/scripts/startup

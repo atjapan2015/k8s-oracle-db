@@ -18,3 +18,7 @@ spec:
      protocol: TCP
      port: 5500
      nodePort: 31500
+   - name: ords
+     protocol: TCP
+     port: 8080
+     nodePort: 31580
